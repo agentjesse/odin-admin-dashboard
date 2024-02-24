@@ -8,11 +8,12 @@ input, button, textarea, select { font: inherit; }
 :root{
   --blue1: hsl(201 79% 46%);
   --grey1: hsl(214 32% 91%); 
-  --greyText: hsl(0 0% 40%);
+  --greyText: hsl(0, 0%, 60%);
   --yellow1: hsl(48 100% 48%);
   --white: hsl(0 0% 100%);
   --black: hsl(0 0% 0%);
   --greyShadowColor: hsl(0 0% 75%);
+  --cardradius: 10px;
 }
 
 /* main CSS */
@@ -68,8 +69,8 @@ header {
   .profilePic {
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 52%; /*change this for live update in chrome*/
-    background-image: url('./assets/icons/catProfilePic.svg');
+    border-radius: 52%; /*toggle the background-image url for live update in chrome*/
+    background-image: url('./assets/icons/morganDisplayPic.svg');
   }
   search {
     form{
@@ -114,6 +115,7 @@ header {
     padding: 0 2rem;
     gap: 0 1rem;
     align-items: center;
+    font-weight: 500;
     .profilePic {
       grid-area: 1/1/3/2;
       width: 3.5rem;
@@ -121,16 +123,15 @@ header {
     }
     p:nth-of-type(1) {
       font-size: 0.8rem;
-      font-weight: 500;
       align-self: end;
     }
     p:nth-of-type(2) {
       align-self: start;
-      font-weight: 500;
       font-size: 1.1rem;
     }
   }
   .buttons{
+    min-width: 16rem;
     display: flex;
     justify-content: center;
     padding: 0 3rem 0 0;
@@ -159,7 +160,7 @@ main {
   h3{
     font-size: 1rem;
     font-weight: 500;
-    margin: 1rem 0 0.75rem 0;
+    margin: 1rem 0 0.5rem 0;
   }
   
   .cardGrid{
@@ -171,7 +172,7 @@ main {
       min-height: 100px;
       background-color: var(--white);
       border-left: 6px solid var(--yellow1);
-      border-radius: 5px;
+      border-radius: var(--cardradius);
       box-shadow: 0 3px 3px var(--greyShadowColor);
       padding: 1.6rem 1.4rem;
       color: var(--greyText);
@@ -194,7 +195,86 @@ main {
       }
     }
   }
-  section:nth-of-type(2){
-    background-color: green;
+  section.anTreGrid{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    .wrapper{ /*two div wrappers*/
+      display: flex;
+      flex-direction: column;
+      min-width: 190px;
+    }
+    .announce{
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+      background-color: var(--white);
+      padding: 0 1rem;
+      border-radius: var(--cardradius);
+      box-shadow: 0 3px 3px var(--greyShadowColor);
+      h4 {
+        font-size: 0.7rem;
+      }
+      p {
+        font-size: 0.6rem;
+        color: var(--greyText);
+      }
+      hr{
+        border-style: none; /*set all to none first*/
+        border-bottom: 1px solid var(--greyText);
+      }
+    }
+    .trend {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--white);
+      padding: 0 1rem;
+      border-radius: var(--cardradius);
+      box-shadow: 0 3px 3px var(--greyShadowColor);
+    }
+    .trendingUser{
+      display: grid;
+      grid-template: 1fr 1fr/ 1fr 9fr;
+      padding: 0 0 1rem 0;
+      gap: 0 0.75rem;
+      align-items: center;
+      font-size: 0.7rem;
+      .tegan{
+        background-image: url('./assets/icons/teganDisplayPic.svg');
+      }
+      .morgan{
+        background-image: url('./assets/icons/morganDisplayPic.svg');
+      }
+      .kendall{
+        background-image: url('./assets/icons/kendallDisplayPic.svg');
+      }
+      .alex{
+        background-image: url('./assets/icons/alexDisplayPic.svg');  
+      }
+      .userPic {
+        grid-area: 1/1/3/2;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 52%; /*toggle the background-image url for live update in chrome*/
+      }
+      p:nth-of-type(1) {
+        font-weight: 400;
+        align-self: end;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+      p:nth-of-type(2) {
+        font-weight: 400;
+        align-self: start;
+        color: var(--greyText);
+      }
+    }
+
   }
 }
+/* scratch area below */
